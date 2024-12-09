@@ -34,7 +34,7 @@ def calculate_feature_importance(input_dir, output_file):
 
             # Create DataFrames for each metric
             variance_df = pd.DataFrame({
-                "Feature": variances.index,  # Correctly get feature names
+                "Feature": variances.index,
                 "Variance": variances.values
             }).sort_values(by="Variance", ascending=False)
 
@@ -45,7 +45,7 @@ def calculate_feature_importance(input_dir, output_file):
             exit()
 
             mean_tfidf_df = pd.DataFrame({
-                "Feature": mean_tfidf.index,  # Correctly get feature names
+                "Feature": mean_tfidf.index,
                 "Mean TF-IDF": mean_tfidf.values
             }).sort_values(by="Mean TF-IDF", ascending=False)
 
@@ -62,10 +62,10 @@ def calculate_feature_importance(input_dir, output_file):
 
 if __name__ == "__main__":
 
-    input_directory = "output_files/tfidf_output_word"  # Replace with your directory
+    input_directory = "output_files/tfidf_output_word"
     output_excel = "TFIDF_Feature_Importance_words.xlsx"
     calculate_feature_importance(input_directory, output_excel)
 
-    input_directory = "output_files/tfidf_output_lemma"  # Replace with your directory
+    input_directory = "output_files/tfidf_output_lemma"
     output_excel = "TFIDF_Feature_Importance_lemma.xlsx"
     calculate_feature_importance(input_directory, output_excel)
