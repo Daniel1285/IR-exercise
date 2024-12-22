@@ -13,8 +13,8 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 
-input_file = "output_files/lemma_file.xlsx"
-output_file = "output_files/new_w2v_lemma_vectors_2.csv"
+input_file = "../output_files/lemma_file.xlsx"
+output_file = "../output_files/new_w2v_lemma_vectors_2.csv"
 
 df = pd.read_excel(input_file, sheet_name=None)
 
@@ -87,7 +87,7 @@ print(f"Word vectors saved to {output_file}")
 
 
 # File path
-output_file = "output_files/new_w2v_lemma_vectors_2.csv"
+output_file = "../output_files/new_w2v_lemma_vectors_2.csv"
 
 try:
     # Read the first 10 rows of the CSV file
@@ -102,8 +102,8 @@ except Exception as e:
 
 
 # Load the Word2Vec results into a DataFrame
-input_file = "output_files/new_w2v_lemma_vectors_2.csv"
-output_file = "output_files/new_word2vec_mean_vectors.csv"
+input_file = "../output_files/new_w2v_lemma_vectors_2.csv"
+output_file = "../output_files/new_word2vec_mean_vectors.csv"
 
 # Load the word vectors
 df = pd.read_csv(input_file)
@@ -119,7 +119,7 @@ doc_vectors.to_csv(output_file, index=False)
 
 print(f"Averaged document vectors saved to {output_file}")
 
-output_file = "output_files/new_word2vec_mean_vectors.csv"
+output_file = "../output_files/new_word2vec_mean_vectors.csv"
 
 try:
     data = pd.read_csv(output_file)

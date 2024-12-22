@@ -7,8 +7,8 @@ from collections import defaultdict
 import nltk
 nltk.download("punkt")
 
-source_file = "posts_first_targil.xlsx"
-output_file = "output_files/new_bert_vectors.csv"
+source_file = "../posts_first_targil.xlsx"
+output_file = "../output_files/new_bert_vectors.csv"
 
 df = pd.read_excel(source_file, sheet_name=None)
 if "J-P" in df:
@@ -46,7 +46,8 @@ def get_bert_vectors(text_chunk):
     token_embeddings = outputs.last_hidden_state.squeeze(0)  # Shape: [sequence_length, hidden_size]
     attention_mask = inputs["attention_mask"].squeeze(0)  # Shape: [sequence_length]
     tokens = tokenizer.convert_ids_to_tokens(inputs["input_ids"].squeeze(0))  # List of tokens
-
+    print(tokens)
+    exit()
     return tokens, token_embeddings, attention_mask
 
 # Function to process subwords into full word embeddings
@@ -124,7 +125,7 @@ with open(output_file, "w", encoding="utf-8") as file:
 print(f"BERT vectors with RowIndex saved to {output_file}")
 
 
-output_file = "output_files/new_bert_vectors.csv"
+output_file = "../output_files/new_bert_vectors.csv"
 
 try:
     data = pd.read_csv(output_file)
