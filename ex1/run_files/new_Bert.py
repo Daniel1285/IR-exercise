@@ -46,8 +46,6 @@ def get_bert_vectors(text_chunk):
     token_embeddings = outputs.last_hidden_state.squeeze(0)  # Shape: [sequence_length, hidden_size]
     attention_mask = inputs["attention_mask"].squeeze(0)  # Shape: [sequence_length]
     tokens = tokenizer.convert_ids_to_tokens(inputs["input_ids"].squeeze(0))  # List of tokens
-    print(tokens)
-    exit()
     return tokens, token_embeddings, attention_mask
 
 # Function to process subwords into full word embeddings
